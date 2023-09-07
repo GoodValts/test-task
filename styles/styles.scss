@@ -1,0 +1,121 @@
+// General
+
+$defaultMargin: 20px;
+$defaultMarginDiv4: calc($defaultMargin / 4);
+
+@mixin _font($size) {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: $size;
+    text-decoration: none;
+}
+
+@mixin _button($width, $height, $font-size) {
+    display: flex;
+    width: $width;
+    height: $height;
+    justify-content: center;
+    align-items: center;
+    background-color: darkcyan;
+    border-width: 0;
+    border-radius: $defaultMarginDiv4;
+    padding: $defaultMarginDiv4;
+    @include _font($font-size);
+
+    &:hover {
+      background-color: LightSeaGreen;
+      transform: scale(.99);
+      cursor: pointer;
+    }
+}
+
+@mixin _tablet {
+    @media (max-width: 959.98px) {
+      @content;
+    }
+}
+@mixin _mobile {
+    @media (max-width: 659.98px) {
+      @content;
+    }
+}
+
+// styles
+
+* {
+    margin: 0;
+    padding: 0;
+    transition-duration: .3s;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+.main__main-section {
+    width: 100%;
+    margin: $defaultMargin;
+}
+
+.main-section__passwords-container {
+    display: grid;
+    max-width: 1000px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    gap: $defaultMarginDiv4;
+    margin: $defaultMarginDiv4 auto;
+
+    @include _mobile() {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.passwords-container__password-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password-block__number {
+    width: 25px;
+    text-align: center;
+    @include _font(16px);
+    color: darkcyan;
+    margin: $defaultMarginDiv4;
+}
+
+.password-block__input {
+    width: 120px;
+    height: 30px;
+    @include _font(16px);
+    color: darkslategrey;
+    margin: $defaultMarginDiv4;
+    padding: 0 $defaultMarginDiv4;
+    border: solid 1px darkcyan;
+    border-radius: 5px;
+
+    @include _tablet() {
+        width: 80px;
+    }
+}
+
+
+.password-block__image {
+    width: 20px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.main-section__generate-button {
+    display: block;
+    @include _button(200px, 30px, 16px);
+    color: white;
+    margin: $defaultMargin auto;
+}
