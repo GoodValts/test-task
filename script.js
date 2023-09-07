@@ -26,7 +26,7 @@ for (let i = 0; i < inputsAmount; i += 1) {
 
     const image = document.createElement('img');
     image.classList.add('password-block__image');
-    image.src = './assets/images/png/unvisable-icon.png';
+    image.src = './assets/png/unvisable-icon.png';
     image.addEventListener('click', () => switchView(inputBlock));
 
     inputBlock.append(number, input, image);
@@ -52,7 +52,7 @@ const visableField = {};
 function hidePassword() {
     if (visableField.input) {
         visableField.input.type = 'password'
-        visableField.image.src = './assets/images/png/unvisable-icon.png';
+        visableField.image.src = './assets/png/unvisable-icon.png';
     }
 }
 
@@ -63,7 +63,7 @@ function showPassword(block) {
     const image = block.children[2];
 
     input.type = 'text';
-    image.src = './assets/images/png/visable-icon.png';
+    image.src = './assets/png/visable-icon.png';
 
     visableField.input = input;
     visableField.image = image;
