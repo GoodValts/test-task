@@ -6,4 +6,4 @@ Done:
 - inputs state;
 - password generation.
 
-Deploy: https://goodvalts.github.io/test-task/
+[Deploy](https://goodvalts.github.io/test-task/)
